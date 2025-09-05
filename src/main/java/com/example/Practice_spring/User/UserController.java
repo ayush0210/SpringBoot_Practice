@@ -22,4 +22,15 @@ public class UserController {
     public User getById(@PathVariable Long id){
         return controller.getUserById(id);
     }
+
+    @PostMapping("/Post-users")
+    public String importUsers()  {
+        try {
+            controller.fetchandaddusers();
+            return "Users added successfully";
+        } catch (Exception e) {
+            return  "Error importing" + e.getMessage();
+        }
+
+    }
 }
