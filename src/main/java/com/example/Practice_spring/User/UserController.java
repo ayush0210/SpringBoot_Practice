@@ -23,14 +23,20 @@ public class UserController {
         return controller.getUserById(id);
     }
 
+
     @PostMapping("/Post-users")
     public String importUsers()  {
         try {
-            controller.fetchandaddusers();
-            return "Users added successfully";
+            int count = controller.addUsersInTable();
+            return "Users added successfully" + count;
         } catch (Exception e) {
             return  "Error importing" + e.getMessage();
         }
 
+    }
+
+    @GetMapping("/count")
+    public int count(){
+        return controller.count();
     }
 }

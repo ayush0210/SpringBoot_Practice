@@ -1,6 +1,11 @@
 package com.example.Practice_spring.User;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "Users")
 public class User {
+    @Id
     private Long id;
     private String name;
     private String email;
